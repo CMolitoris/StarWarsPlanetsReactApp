@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+
+  const [planets, setPlanets] = useState([]);
+
+  useEffect(() => {
+    getPlanets();
+  },[]);
+
+  const getPlanets = async () => {
+    let URL = "https://swapi.dev/api/planets/";
+
+    const response = await axios.get(URL)
+      .then( res => {
+        setPlanets(res.data.results)
+      }
+    );
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>
+        Star Wars Planets
+      </h2>
+      <div>
+        <ul>
+          {planets.map((planet, index) => {
+              return (
+              <li key={index}>
+                  {planet.name}
+              </li>
+              )
+          })}
+        </ul>
+      </div>
     </div>
   );
+  
 }
 
 export default App;
