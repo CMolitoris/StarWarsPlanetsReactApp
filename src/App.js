@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import { Accordion } from 'react-bootstrap';
 import axios from 'axios';
 
 function App() {
@@ -26,15 +27,25 @@ function App() {
         Star Wars Planets
       </h2>
       <div>
-        <ul>
-          {planets.map((planet, index) => {
-              return (
-              <li key={index}>
-                  {planet.name}
-              </li>
-              )
-          })}
-        </ul>
+          <Accordion style={{textAlign: 'left'}}>
+            {planets.map((planet, index) => {
+                return (
+                  <Accordion.Item eventKey={index}>
+                    <Accordion.Header>{planet.name}</Accordion.Header>
+                    <Accordion.Body >
+                      Rotation Period: {planet.rotation_period}<br/>
+                      Orbital Period: {planet.orbital_period}<br/>
+                      Diameter: {planet.diameter}<br/>
+                      Climate: {planet.climate}<br/>
+                      Gravity: {planet.gravity}<br/>
+                      Terrain: {planet.terrain}<br/>
+                      Surface Water: {planet.surface_water}<br/>
+                      Population: {planet.population}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                )
+            })}
+          </Accordion>
       </div>
     </div>
   );
