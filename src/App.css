@@ -1,13 +1,50 @@
-.title {
-  text-align: center;
-  background-color: firebrick;
+.main-container {
+  vertical-align: middle;
+  padding: 5rem;
 }
 
-.acc-style {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10rem;
+.main-title {
+  text-align: center;
+}
+
+.card-scroll {
+  margin:4px, 4px;
+  padding:1px;
+  height: 6rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+.image-style {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.con-title {
+  background-color: rgb(187, 100, 100, 0.5);
+  border-radius: 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  width: auto;
+}
+
+.con-style {
+  margin-top: 2rem;
+  height: auto;
+}
+
+.text-center {
+  text-align: center;
+  padding: 0.4rem;
+}
+
+.card-body-style {
+  background-color: rgb(195, 219, 217, 0.5);
+  border-radius: 1rem;
+  margin-top: 1rem;
 }
 
 
