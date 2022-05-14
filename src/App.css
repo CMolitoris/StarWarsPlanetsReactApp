@@ -7,6 +7,12 @@
   text-align: center;
 }
 
+.card-image {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
 .card-scroll {
   margin:4px, 4px;
   padding:1px;

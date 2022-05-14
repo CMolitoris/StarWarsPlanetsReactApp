@@ -2,7 +2,17 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
-import hoth from "./static/images/hoth.jpg";
+import Hoth from "./static/images/hoth.jpg";
+import Alderaan from "./static/images/alderaan.jpg";
+import Endor from "./static/images/endor.jpg";
+import Coruscant from "./static/images/coruscant.jpg";
+import Naboo from "./static/images/naboo.jpg";
+import Tatooine from "./static/images/tatooine.jpg";
+import Bespin from "./static/images/bespin.jpg";
+import Yavin from "./static/images/yavin.jpg";
+import Dagobah from "./static/images/dagobah.jpg";
+import Kamino from "./static/images/kamino.jpg";
+
 
 function App() {
 
@@ -20,6 +30,33 @@ function App() {
         setPlanets(res.data.results)
       }
     );
+  }
+
+  const getPlanetName = name => {
+    switch(name) {
+      case "Hoth":
+        return Hoth;
+      case "Tatooine":
+        return Tatooine;
+      case "Alderaan":
+        return Alderaan;
+      case "Yavin IV":
+        return Yavin;
+      case "Dagobah":
+        return Dagobah;
+      case "Bespin":
+        return Bespin;
+      case "Endor":
+        return Endor;
+      case "Naboo":
+        return Naboo;
+      case "Coruscant":      
+        return Coruscant;
+      case "Kamino":
+        return Kamino;  
+      default:
+        return null;  
+    }
   }
 
   return (
@@ -44,7 +81,7 @@ function App() {
             return (
                 <div className='col-4  '>
                     <Card className='mt-2 ' key={i} style={{ width: 'auto' }}>
-                        <Card.Img className='card-image'  src={hoth} />
+                        <Card.Img className='card-image'  src={getPlanetName(planet.name)} />
                         <Card.Body>
                             <Card.Title>{planet.name}</Card.Title>
                                 <div>
