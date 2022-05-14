@@ -12,6 +12,7 @@ import Bespin from "./static/images/bespin.jpg";
 import Yavin from "./static/images/yavin.jpg";
 import Dagobah from "./static/images/dagobah.jpg";
 import Kamino from "./static/images/kamino.jpg";
+import DetailsModal from './components/DetailsModal';
 
 
 function App() {
@@ -80,24 +81,15 @@ function App() {
           {planets.map((planet,i) => {
             return (
                 <div className='col-4  '>
-                    <Card className='mt-2 ' key={i} style={{ width: 'auto' }}>
+                    <Card className='mt-2 shadow' key={i} style={{ width: 'auto' }}>
                         <Card.Img className='card-image'  src={getPlanetName(planet.name)} />
                         <Card.Body>
                             <Card.Title>{planet.name}</Card.Title>
-                                <div>
-                                    <hr/>
-                                    <div className='card-scroll'>
-                                      Rotation Period: {planet.rotation_period}<br/>
-                                      Orbital Period: {planet.orbital_period}<br/>
-                                      Diameter: {planet.diameter}<br/>
-                                      Climate: {planet.climate}<br/>
-                                      Gravity: {planet.gravity}<br/>
-                                      Terrain: {planet.terrain}<br/>
-                                      Surface Water: {planet.surface_water}<br/>
-                                      Population: {planet.population}
-                                    </div>
-                                </div>
-                            <Button id='button-color' className='w-100' variant="dark">Details <i class="bi bi-link"></i></Button>
+                              <hr/>
+                              <div>
+                                
+                              </div>
+                            <DetailsModal planet={planet} planetPhoto={getPlanetName(planet.name)}/>
                         </Card.Body>
                     </Card>
                 </div>
