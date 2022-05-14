@@ -22,16 +22,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h2>
+    <div >
+      <h2 class='title'>
         Star Wars Planets
       </h2>
-      <div>
-          <Accordion style={{textAlign: 'left'}}>
+      <div class='acc-style'>
+          <Accordion style={{textAlign: 'left'}} id="styled-acc">
             {planets.map((planet, index) => {
                 return (
                   <Accordion.Item eventKey={index}>
-                    <Accordion.Header>{planet.name}</Accordion.Header>
+                    <Accordion.Header >{planet.name}</Accordion.Header>
                     <Accordion.Body >
                       Rotation Period: {planet.rotation_period}<br/>
                       Orbital Period: {planet.orbital_period}<br/>
