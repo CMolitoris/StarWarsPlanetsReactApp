@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import axios from 'axios';
 import Hoth from "./static/images/hoth.jpg";
 import Alderaan from "./static/images/alderaan.jpg";
@@ -14,7 +14,6 @@ import Dagobah from "./static/images/dagobah.jpg";
 import Kamino from "./static/images/kamino.jpg";
 import DetailsModal from './components/DetailsModal';
 
-
 function App() {
 
   const [planets, setPlanets] = useState([]);
@@ -26,7 +25,7 @@ function App() {
   const getPlanets = async () => {
     let URL = "https://swapi.dev/api/planets/";
 
-    const response = await axios.get(URL)
+    await axios.get(URL)
       .then( res => {
         setPlanets(res.data.results)
       }
