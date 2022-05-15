@@ -55,7 +55,7 @@ function DetailsModal(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <Container>
-                        <Row className='rounded-3 shadow' style={{backgroundColor: "#BB6464"}}>
+                        <Row className='rounded-3 shadow' style={{backgroundColor: "black"}}>
                             <Col>
                                 <Image className='card-image-modal rounded-3 image-style' src={props.planetPhoto}/>
                             </Col>
@@ -116,7 +116,7 @@ function DetailsModal(props) {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="dark" onClick={handleClose}>
                     Close
                 </Button>
                 </Modal.Footer>

@@ -3,6 +3,10 @@
   padding: 5rem;
 }
 
+.starwars-font {
+  font-family: "STARWARS";
+}
+
 .main-title {
   text-align: center;
 }
@@ -35,11 +39,21 @@
   margin-top: 3rem;
   padding: 2rem;
   width: auto;
+  background: url("./static/images/stars.jpg"); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
 }
 
 .con-style {
   margin-top: 2rem;
   height: auto;
+}
+
+.title-banner {
+  color: #15f2fd;
 }
 
 .text-center {

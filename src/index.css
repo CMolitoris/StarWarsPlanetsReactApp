@@ -17,3 +17,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family:"STARWARS";
+  src:url("fonts/StarWars/STARWARS.eot") format("eot"),
+  url("fonts/StarWars/STARWARS.woff") format("woff"),
+  url("fonts/StarWars/STARWARS.ttf") format("truetype"),
+  url("fonts/StarWars/STARWARS.svg#STARWARS") format("svg");
+  font-weight:normal;font-style:normal;
+}

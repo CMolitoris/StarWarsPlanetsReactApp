@@ -13,6 +13,7 @@ import Yavin from "./static/images/yavin.jpg";
 import Dagobah from "./static/images/dagobah.jpg";
 import Kamino from "./static/images/kamino.jpg";
 import DetailsModal from './components/DetailsModal';
+import 'react-star-wars-crawl/lib/index.css';
 
 function App() {
 
@@ -61,22 +62,23 @@ function App() {
 
   return (
     <div className='main-container'>
+      
       <div className='container con-title'>
         <div className='row'>
           <div className='offset-1 col-10'>
-            <h2>Star Wars Planets</h2>
-            <hr/>
-            <h6 className='text-center'>
-              Below you will find your favorite Star Wars planets. When toggling the drop-down
-              you will be able to see the details and find a button which will give you a more 
-              detailed view of each.
+            <h2 className='title-banner starwars-font'>Star Wars Planets</h2>
+            <hr style={{color: "white"}}/>
+            <h6 className='text-center starwars-font' style={{color: "#FFE81F"}}>
+              Below you will find your favorite Star Wars planets. Find out 
+              more about each of them by clicking the "Details" button where 
+              you will be brought to an enhanced view with the specifics of 
+              each planet!
             </h6>
           </div>
         </div>
       </div>
-      
       <div className='container card-body-style' align="center">
-        <div className='row  '>                            
+        <div className='row starwars-font'>                            
           {planets.map((planet,i) => {
             return (
                 <div className='col-4  '>
