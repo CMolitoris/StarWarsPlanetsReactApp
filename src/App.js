@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Row } from 'react-bootstrap';
 import axios from 'axios';
 import Hoth from "./static/images/hoth.jpg";
 import Alderaan from "./static/images/alderaan.jpg";
@@ -12,25 +12,42 @@ import Bespin from "./static/images/bespin.jpg";
 import Yavin from "./static/images/yavin.jpg";
 import Dagobah from "./static/images/dagobah.jpg";
 import Kamino from "./static/images/kamino.jpg";
-import DetailsModal from './components/DetailsModal';
+import DetailsModal from './components/DetailsModal/DetailsModal';
 import 'react-star-wars-crawl/lib/index.css';
+import FavoritesOC from './components/FavoritesOC/FavoritesOC';
 
 function App() {
 
   const [planets, setPlanets] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     getPlanets();
+    getFavorites();
   },[]);
 
   const getPlanets = async () => {
     let URL = "https://swapi.dev/api/planets/";
 
     await axios.get(URL)
-      .then( res => {
-        setPlanets(res.data.results)
+      .then(res => {
+        setPlanets(res.data.results);
       }
     );
+  }
+
+  const getFavorites = async () => {
+    let URL = "http://localhost:8080/planets/all";
+    let temp = [];
+
+    await axios.get(URL)
+      .then(res => {
+        temp = res.data;
+        setFavorites(temp.filter((planet) => {
+          return planet.isLiked === "Y";
+        }));
+        console.log(favorites)
+      });
   }
 
   const getPlanetName = name => {
@@ -67,7 +84,7 @@ function App() {
         <div className='row'>
           <div className='offset-1 col-10'>
             <h2 className='title-banner starwars-font'>Star Wars Planets</h2>
-            <hr style={{color: "white"}}/>
+            <hr style={{color: "yellow"}}/>
             <h6 className='text-center starwars-font' style={{color: "#FFE81F"}}>
               Below you will find your favorite Star Wars planets. Find out 
               more about each of them by clicking the "Details" button where 
@@ -77,6 +94,7 @@ function App() {
           </div>
         </div>
       </div>
+      <FavoritesOC favorites={favorites} getPlanetName={getPlanetName}/>
       <div className='container card-body-style' align="center">
         <div className='row starwars-font'>                            
           {planets.map((planet,i) => {

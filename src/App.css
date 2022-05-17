@@ -33,13 +33,13 @@
 }
 
 .con-title {
-  background-color: rgb(187, 100, 100);
+  background-color: black;
   border-radius: 1rem;
   text-align: center;
   margin-top: 3rem;
   padding: 2rem;
   width: auto;
-  background: url("./static/images/stars.jpg"); 
+  background: url("./static/images/stars-far.jpg"); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -64,7 +64,7 @@
 .card-body-style {
   background-color: rgb(195, 219, 217, 0.5);
   border-radius: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   padding-top: 0.1rem;
   padding-bottom: 1rem;
 }

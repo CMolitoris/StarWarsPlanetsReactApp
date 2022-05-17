@@ -1,0 +1,15 @@
+#pane {
+    background: url("../../static/images/stars-far.jpg"); 
+    font-family: 'Source Serif Pro', serif;
+}
+
+.card {
+    border-radius: 1rem;
+}
+
+#header-canvas {
+    background-color: black;
+    padding-left: 6.8rem;
+    width: 100%;
+    color: white;
+}

@@ -15,7 +15,6 @@ function DetailsModal(props) {
         
         for (let film of films) {
             let movieName = getMovieTitle(film[film.length-2]);
-            console.log(movieName)
             movieList.push(movieName);
         }
         setMovies(movieList);
@@ -43,7 +42,7 @@ function DetailsModal(props) {
 
     return (
         <>
-            <Button style={{width:"100%"}} variant="dark" onClick={() => {handleShow(); getFeaturedMovies(props.planet.films);}}>
+            <Button style={{width:"100%", backgroundColor: "black"}} variant="dark" onClick={() => {handleShow(); getFeaturedMovies(props.planet.films);}}>
                 Details
             </Button>
 
