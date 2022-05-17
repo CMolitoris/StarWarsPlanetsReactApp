@@ -15,6 +15,7 @@ import Kamino from "./static/images/kamino.jpg";
 import DetailsModal from './components/DetailsModal/DetailsModal';
 import 'react-star-wars-crawl/lib/index.css';
 import FavoritesOC from './components/FavoritesOC/FavoritesOC';
+import FavoriteButton from './components/FavoriteButton/FavoriteButton';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
   useEffect(() => {
     getPlanets();
     getFavorites();
-  },[]);
+  },[setPlanets,setFavorites]);
 
   const getPlanets = async () => {
     let URL = "https://swapi.dev/api/planets/";
@@ -46,8 +47,18 @@ function App() {
         setFavorites(temp.filter((planet) => {
           return planet.isLiked === "Y";
         }));
-        console.log(favorites)
       });
+  }
+
+  const isFavorite = (planet) => {
+    let temp = favorites.filter((element) => {
+        return element.name === planet.name;
+    })
+    if (temp.length > 0) {
+      return "Y";
+    } else {
+      return "N"
+    }
   }
 
   const getPlanetName = name => {
@@ -108,7 +119,16 @@ function App() {
                               <div>
                                 
                               </div>
-                            <DetailsModal planet={planet} planetPhoto={getPlanetName(planet.name)}/>
+                              <div className='container'>
+                                <div className='row'>
+                                  <div className='col-6'>
+                                    <DetailsModal planet={planet} planetPhoto={getPlanetName(planet.name)}/>
+                                  </div>
+                                  <div className='col-6'>
+                                    <FavoriteButton planet={planet} favorite={isFavorite(planet)}/>
+                                  </div>
+                                </div>
+                              </div>
                         </Card.Body>
                     </Card>
                 </div>
