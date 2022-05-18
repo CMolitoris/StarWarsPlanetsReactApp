@@ -29,12 +29,22 @@ function App() {
 
   const getPlanets = async () => {
     let URL = "https://swapi.dev/api/planets/";
+  
+    let arrayPlanets = [];
 
-    await axios.get(URL)
-      .then(res => {
-        setPlanets(res.data.results);
-      }
-    );
+    let response = await axios.get(URL)
+      arrayPlanets = arrayPlanets.concat(response.data.results);
+      console.log(response)
+
+    while (response.data.next !== null) {
+      response = await axios.get(response.data.next)
+      arrayPlanets = arrayPlanets.concat(response.data.results)
+    }
+
+
+
+    console.log(arrayPlanets);
+    setPlanets(arrayPlanets);
   }
 
   const getFavorites = async () => {
